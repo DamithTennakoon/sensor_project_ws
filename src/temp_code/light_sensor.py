@@ -35,6 +35,7 @@ try:
         # Generate random values for temperature and light
         test_temperature = round(random.uniform(15.0, 30.0), 2)  # Random temperature between 15.0 and 30.0
         lux = sensor.lux
+        lux = round(lux, 2)
         
         # Define test data
         test_time = datetime.now()  # Current timestamp
