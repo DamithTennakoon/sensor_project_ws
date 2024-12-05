@@ -11,7 +11,7 @@ def set_angle(angle):
 
 try:
     while True:
-        set_angle(60)
+        set_angle(10)
 
 except KeyboardInterrupt:
     print("Program exiting...")
