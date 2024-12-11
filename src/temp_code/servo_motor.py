@@ -37,7 +37,7 @@ def main():
     print("Server established - waiting client connection...")
 
     # Initialize servo motor
-    target_servo_angle = 0
+    target_servo_angle = 90
     servo = AngularServo(18, min_pulse_width=0.0006, max_pulse_width=0.0023)
     time.sleep(1)
     servo.angle = target_servo_angle
