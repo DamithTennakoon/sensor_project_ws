@@ -17,6 +17,12 @@ while (True):
 # Objective: control the servo motor over a udp server
 import socket
 
+# Function: decode the received msg into rpi value and move servo
+# Q = +1 deg, W = -1 deg,...
+def move_servo(msg):
+    pass
+    
+
 # Construct main method
 def main():
     # Define UDP server 
@@ -30,7 +36,15 @@ def main():
     udp_server.bind((host_ip, port))
     print("Server established - waiting client connection...")
 
-    # Continous communication with client
+    # Initialize servo motor
+    target_servo_angle = 90
+    servo = AngularServo(18, min_pulse_width=0.0006, max_pulse_width=0.0023)
+    time.sleep(1)
+    servo.angle = target_servo_angle
+    time.sleep(1)
+    print("Servo motor initialized...")
+
+    # Continous communication with clients
     while True:
         # Data reception and decoding
         msg_rx, client_ip = udp_server.recvfrom(buffer_size)
