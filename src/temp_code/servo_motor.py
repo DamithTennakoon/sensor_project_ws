@@ -35,6 +35,7 @@ def main():
         # Data reception and decoding
         msg_rx, client_ip = udp_server.recvfrom(buffer_size)
         msg_rx = msg_rx.decode('utf-8')
+        print("RX: ", msg_rx)
 
         # Data encoding and transmission
         udp_server.sendto(msg_tx.encode('utf-8'), client_ip)
