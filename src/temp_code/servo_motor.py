@@ -33,7 +33,7 @@ def main():
     # Continous communication with client
     while True:
         # Data reception and decoding
-        msg_rx, client_ip - udp_server.recvfrom(buffer_size)
+        msg_rx, client_ip = udp_server.recvfrom(buffer_size)
         msg_rx = msg_rx.decode('utf-8')
 
         # Data encoding and transmission
