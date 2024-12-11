@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO # For PWM
 import time
 from gpiozero import AngularServo # For direct commands to servo
-
+'''
 servo = AngularServo(18, min_pulse_width=0.0006, max_pulse_width=0.0023)
 
 while (True):
@@ -12,3 +12,37 @@ while (True):
     time.sleep(2)
     servo.angle = -90
     time.sleep(2)
+
+'''
+# Objective: control the servo motor over a udp server
+import socket
+
+# Construct main method
+def main():
+    # Define UDP server 
+    host_ip = '130.63.230.54'
+    port = 3232
+    buffer_size = 1024
+    client_ip = []
+    msg_rx = ""
+    msg_tx = "ISRU Rover Server"
+    udp_server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    udp_server.bind((host_ip, port))
+    print("Server established - waiting client connection...")
+
+    # Continous communication with client
+    while True:
+        # Data reception and decoding
+        msg_rx, client_ip - udp_server.recvfrom(buffer_size)
+        msg_rx = msg_rx.decode('utf-8')
+
+        # Data encoding and transmission
+        udp_server.sendto(msg_tx.encode('utf-8'), client_ip)
+
+
+
+
+
+
+
+
