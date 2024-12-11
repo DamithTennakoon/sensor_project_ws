@@ -39,6 +39,9 @@ def main():
         # Data encoding and transmission
         udp_server.sendto(msg_tx.encode('utf-8'), client_ip)
 
+if __name__ == '__main__':
+    main()
+
 
 
 
