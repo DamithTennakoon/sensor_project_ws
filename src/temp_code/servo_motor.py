@@ -30,12 +30,11 @@ def move_servo(msg, incr):
         pass
     # Clamp the target servo value between -90 and -40 deg.
     if (incr < -90):
-        incr = 90
+        incr = -90
     elif (incr > -40):
         incr = -40
     else:
         incr = incr
-
     return incr
 
 # Construct main method
