@@ -1,20 +1,11 @@
-# Import RPi libraries
+# Objective: control the servo motor over a udp server
+
+# RPi libraries
 import RPi.GPIO as GPIO # For PWM
 import time
 from gpiozero import AngularServo # For direct commands to servo
-'''
-servo = AngularServo(18, min_pulse_width=0.0006, max_pulse_width=0.0023)
 
-while (True):
-    servo.angle = 90
-    time.sleep(2)
-    servo.angle = 0
-    time.sleep(2)
-    servo.angle = -90
-    time.sleep(2)
-
-'''
-# Objective: control the servo motor over a udp server
+# Communications libraries
 import socket
 
 # Function: decode the received msg into rpi value and move servo
@@ -52,7 +43,7 @@ def main():
 
     # Initialize servo motor
     target_servo_angle = -90
-    servo = AngularServo(18, min_pulse_width=0.0006, max_pulse_width=0.0023)
+    servo = AngularServo(18, min_pulse_width=0.0005, max_pulse_width=0.0025)
     time.sleep(1)
     servo.angle = target_servo_angle
     time.sleep(1)
