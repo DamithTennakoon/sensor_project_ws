@@ -66,6 +66,8 @@ def main():
         
         # Compute and actuate servo 
         target_servo_angle = move_servo(msg_rx, target_servo_angle)
+        servo.angle = target_servo_angle
+        time.sleep(0.02)
         print(f"TARGET ANGLE: {target_servo_angle}")
 
         # Data encoding and transmission
