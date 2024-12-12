@@ -23,9 +23,9 @@ import socket
 def move_servo(msg, incr):
     # Increment servo target value based on input keys
     if (msg == 'q'):
-        incr += 1
+        incr += 2
     elif (msg == 'w'):
-        incr -= 1
+        incr -= 2
     else:
         pass
     # Clamp the target servo value between -90 and -40 deg.
@@ -67,7 +67,6 @@ def main():
         # Compute and actuate servo 
         target_servo_angle = move_servo(msg_rx, target_servo_angle)
         servo.angle = target_servo_angle
-        time.sleep(0.2)
         print(f"TARGET ANGLE: {target_servo_angle}")
 
         # Data encoding and transmission
