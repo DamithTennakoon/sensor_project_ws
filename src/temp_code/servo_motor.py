@@ -66,7 +66,8 @@ def main():
         msg_rx = msg_rx.decode('utf-8')
         
         # Compute and actuate servo 
-        print(f"TARGET ANGLE: {move_servo(msg_rx, target_servo_angle)}")
+        target_servo_angle = move_servo(msg_rx, target_servo_angle)
+        print(f"TARGET ANGLE: {target_servo_angle}")
 
         # Data encoding and transmission
         udp_server.sendto(msg_tx.encode('utf-8'), client_ip)
